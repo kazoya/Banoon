@@ -16,6 +16,8 @@ const arabic = localFont({
   ],
   variable: "--font-arabic",
   display: "swap",
+  preload: true,
+  adjustFontFallback: false,
 });
 const mono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -39,9 +41,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="ar"
       dir="rtl"
       suppressHydrationWarning
-      className={`${arabic.variable} ${mono.variable} h-full antialiased`}
+      className={`${arabic.variable} ${arabic.className} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full" suppressHydrationWarning>
+      <body className={`${arabic.className} min-h-full`} suppressHydrationWarning>
         <TooltipProvider>
           <AppShell>{children}</AppShell>
           <Toaster />
