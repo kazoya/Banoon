@@ -13,7 +13,7 @@ const rfpStations = [
   "فرز",
   "تخزين",
   "اختبار جودة",
-];
+] as const satisfies ReadonlyArray<keyof typeof smartFactoryProfile.stationMap>;
 
 export default function SmartFactoryPage() {
   return (
